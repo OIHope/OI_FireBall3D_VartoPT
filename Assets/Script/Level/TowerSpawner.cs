@@ -13,15 +13,19 @@ namespace Assets.Script.Level
 
         private Vector3 _lastSpawnedPos;
         public float NewSpawnPosModifier => blockHight + spaceBetweenTargets;
-
-        private void Awake()
+        public void RespawnTower()
         {
-            RespawnTower();
-        }
-        private void RespawnTower()
-        {
+            Clean();
             SpawnBlocks(blockPrefabs, Random.Range(spawnCountRange.x, spawnCountRange.y), false, transform.position);
             SpawnBlocks(treasurePrefabs, 1, true, _lastSpawnedPos);
+        }
+        private void Clean()
+        {
+            if (transform.childCount == 0) return;
+            for (int i = transform.childCount; i == 0; i--)
+            {
+                Destroy(transform.GetChild(i).gameObject);
+            }
         }
         private void SpawnBlocks(List<GameObject> list, int count, bool random, Vector3 startPos)
         {

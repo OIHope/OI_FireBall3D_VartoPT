@@ -277,6 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 7606770250274839147}
   delay: 0
+  deactivate: 1
 --- !u!1 &8187666063611253148
 GameObject:
   m_ObjectHideFlags: 0

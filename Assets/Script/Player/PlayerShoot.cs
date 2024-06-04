@@ -21,14 +21,6 @@ namespace Assets.Script.Player
             _inputAction.GameInput.Shoot.started += StartShooting;
             _inputAction.GameInput.Shoot.canceled += StopShooting;
         }
-        private void OnEnable()
-        {
-            _inputAction?.Enable();
-        }
-        private void OnDisable()
-        {
-            _inputAction?.Disable();
-        }
         private void StartShooting(InputAction.CallbackContext callback)
         {
             _isShooting = true;
@@ -52,6 +44,14 @@ namespace Assets.Script.Player
                 yield return new WaitForSeconds(shootDelay);
                 _canShoot = true;
             }
+        }
+        private void OnEnable()
+        {
+            _inputAction?.Enable();
+        }
+        private void OnDisable()
+        {
+            _inputAction?.Disable();
         }
     }
 }

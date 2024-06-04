@@ -8,13 +8,11 @@ namespace Assets.Script.Level
     public class ShieldSpawner : MonoBehaviour
     {
         [SerializeField] private List<GameObject> shieldPrefabs;
-
-        private void Start()
+        public void RespawnShield()
         {
             Clean();
             GenerateShield();
         }
-
         private void Clean()
         {
             if (transform.childCount == 0) return;
@@ -23,7 +21,6 @@ namespace Assets.Script.Level
                 Destroy(transform.GetChild(i).gameObject);
             }
         }
-
         private void GenerateShield()
         {
             int randID = Random.Range(0, shieldPrefabs.Count);

@@ -1,13 +1,10 @@
 using Assets.Script.Level;
+using UnityEditor;
 
 namespace Assets.Script.Player
 {
     public class PlayerTargetManager : Target
     {
-        private void Start()
-        {
-            ChangeText(hp);
-        }
         public override void Init()
         {
         }
@@ -24,10 +21,15 @@ namespace Assets.Script.Player
         }
         protected override void Destruction()
         {
-            base.Destruction();
+            animator.SetTrigger("TargetIsDead");
         }
         protected override void Update()
         {
+        }
+        private void OnEnable()
+        {
+            hp = maxHp;
+            ChangeText(hp);
         }
     }
 }

@@ -8,7 +8,8 @@ namespace Assets.Script.Level
         public System.Action OnDestroyAction;
         [SerializeField] protected Animator animator;
         [SerializeField] protected TMPro.TextMeshPro hpText;
-        [SerializeField] protected int hp;
+        [SerializeField] protected int maxHp;
+        protected int hp;
         protected Vector3 _currentPos;
 
         public virtual void TakeDamage()
@@ -18,6 +19,7 @@ namespace Assets.Script.Level
         }
         public virtual void Init()
         {
+            hp = maxHp;
             _currentPos = transform.position;
             ChangeText(hp);
         }
@@ -43,6 +45,7 @@ namespace Assets.Script.Level
         {
             OnDestroyAction?.Invoke();
             animator.SetTrigger("TargetIsDead");
+            OnDestroyAction = null;
         }
     }
 }
