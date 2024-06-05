@@ -207,7 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1429670761875796238}
   hpText: {fileID: 554375503331076141}
-  hp: 5
+  maxHp: 5
 --- !u!1 &7807418079397391810
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,9 +275,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9008d347fa44c74a90953e9d4a2425b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 7606770250274839147}
-  delay: 0
-  deactivate: 1
+  targetDestroy: []
+  targetActivate: []
+  targetDeactivate:
+  - {fileID: 7606770250274839147}
 --- !u!1 &8187666063611253148
 GameObject:
   m_ObjectHideFlags: 0

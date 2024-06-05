@@ -60,6 +60,10 @@ PrefabInstance:
       propertyPath: hp
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2836571801664768394, guid: 419e566e870dffc4699f90173bc67439, type: 3}
+      propertyPath: maxHp
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2874360547807197834, guid: 419e566e870dffc4699f90173bc67439, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

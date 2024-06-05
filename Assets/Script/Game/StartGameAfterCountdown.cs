@@ -1,11 +1,13 @@
+using Assets.Script.Game;
 using UnityEngine;
 
 public class StartGameAfterCountdown : MonoBehaviour
 {
-    [SerializeField] private PauseManager pauseManager;
-
+    [SerializeField] private GameplayController gameplayController;
+    [SerializeField] private GameManager gameManager;
     public void StartGame()
     {
-        pauseManager.SetPauseGame(false);
+        gameplayController.StartGame();
+        gameManager.StartTimer();
     }
 }

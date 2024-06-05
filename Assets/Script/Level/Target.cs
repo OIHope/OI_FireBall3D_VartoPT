@@ -12,6 +12,7 @@ namespace Assets.Script.Level
         protected int hp;
         protected Vector3 _currentPos;
 
+        public int GetHPValue => maxHp;
         public virtual void TakeDamage()
         {
             if (hp > 0) Damage();

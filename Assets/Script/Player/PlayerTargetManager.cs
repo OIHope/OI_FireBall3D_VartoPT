@@ -1,4 +1,6 @@
+using Assets.Script.compAction;
 using Assets.Script.Level;
+using System;
 using UnityEditor;
 
 namespace Assets.Script.Player
@@ -21,8 +23,10 @@ namespace Assets.Script.Player
         }
         protected override void Destruction()
         {
+            Invoke("PlayerDie", 1f);
             animator.SetTrigger("TargetIsDead");
         }
+        private void PlayerDie() => SystemActions.OnPlayerDie?.Invoke();
         protected override void Update()
         {
         }

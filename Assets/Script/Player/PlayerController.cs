@@ -1,10 +1,11 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace Assets.Script.Player
 {
-    public class PlayerShoot : MonoBehaviour
+    public class PlayerController : MonoBehaviour
     {
         private PlayerInput _inputAction;
 
@@ -20,18 +21,20 @@ namespace Assets.Script.Player
             _inputAction = new PlayerInput();
             _inputAction.GameInput.Shoot.started += StartShooting;
             _inputAction.GameInput.Shoot.canceled += StopShooting;
+
         }
-        private void StartShooting(InputAction.CallbackContext callback)
+        public void StartShooting(InputAction.CallbackContext callback)
         {
             _isShooting = true;
             StartCoroutine(ShootCoroutine());
         }
-        private void StopShooting(InputAction.CallbackContext callback)
+        public void StopShooting(InputAction.CallbackContext callback)
         {
             _isShooting = false;
         }
         private void Shoot()
         {
+            if (bulletParent == null) bulletParent = gameObject;
             var bullet = Instantiate(bulletPrefab, bulletShootPoint.position, Quaternion.identity, bulletParent.transform).GetComponent<BulletManager>();
             bullet.Init();
         }
@@ -45,9 +48,14 @@ namespace Assets.Script.Player
                 _canShoot = true;
             }
         }
-        private void OnEnable()
+        public void EnablePlayerControl()
         {
             _inputAction?.Enable();
+            _canShoot = true;
+        }
+        public void DisablePlayerControl()
+        {
+            _inputAction?.Disable();
         }
         private void OnDisable()
         {

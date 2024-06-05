@@ -1,3 +1,4 @@
+using Assets.Script.Player;
 using UnityEngine;
 
 namespace Assets.Script.Level
@@ -5,12 +6,22 @@ namespace Assets.Script.Level
     public class PlayerSpawner : MonoBehaviour
     {
         [SerializeField] private GameObject player;
+        [SerializeField] private PlayerController playerController;
 
-        public void ActivatePlayer()
+        public void RespawnPlayer()
         {
+            player.SetActive(false);
             player.SetActive(true);
         }
-        public void DeactivatePlayer()
+        public void ActivatePlayerControls()
+        {
+            playerController.EnablePlayerControl();
+        }
+        public void DeactivatePlayerControls()
+        {
+            playerController.DisablePlayerControl();
+        }
+        public void DespawnPlayer()
         {
             player.SetActive(false);
         }

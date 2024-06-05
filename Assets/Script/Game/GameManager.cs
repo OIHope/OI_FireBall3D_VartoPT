@@ -1,62 +1,79 @@
+using Assets.Script.compAction;
+using Assets.Script.Level;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Script.Game
 {
     public class GameManager : MonoBehaviour
     {
-        [Header("UI Screens")]
-        [SerializeField] private GameObject uiMainMenu;
-        [SerializeField] private GameObject uiPauseMenu;
-        [SerializeField] private GameObject uiGameplay;
-        [SerializeField] private GameObject uiScoreMenu;
-        [SerializeField] private GameObject uiGameOverMenu;
-        [SerializeField] private GameObject uiCountdown;
-        [Space]
-        [Header("Gameplay Related")]
-        [SerializeField] private GameplayController gpGameScene;
+        [Header("Score Related")]
+        [SerializeField] private GameObject towerParent;
+        [SerializeField] private List<GameObject> towerBlocks;
+        [SerializeField] private GameObject shieldBlock;
+        [SerializeField] private int timeForLevel;
+        private int _initTime;
+        private int _timeFor1star;
+        private int _timeFor2star;
+        private int _timeFor3star;
 
-        private void Start()
+        private Coroutine levelTimerCoroutine;
+        public int GetLevelTime => timeForLevel;
+        public int GetTimeSpent => _initTime - timeForLevel;
+        public Vector3 GetTimeStarsInfo => new Vector3(_timeFor1star, _timeFor2star, _timeFor3star);
+        private void Awake() => Application.targetFrameRate = 60;
+        public void StartTimer()
         {
-            GetUIMainMenu();
+            levelTimerCoroutine = StartCoroutine(LevelTimer());
         }
-        private void UIDeactivateAll()
+        private void StopTimer()
         {
-            uiMainMenu.SetActive(false);
-            uiPauseMenu.SetActive(false);
-            uiGameplay.SetActive(false);
-            uiScoreMenu.SetActive(false);
-            uiGameOverMenu.SetActive(false);
-            uiCountdown.SetActive(false);
+            if (levelTimerCoroutine == null) return;
+            StopCoroutine(levelTimerCoroutine);
         }
-        public void GetUIMainMenu()
+        private IEnumerator LevelTimer()
         {
-            UIDeactivateAll();
-            uiMainMenu.SetActive(true);
+            while (true)
+            {
+                yield return new WaitForSeconds(1f);
+                timeForLevel--;
+                if (timeForLevel <= 0)
+                {
+                    SystemActions.OnPlayerDie?.Invoke();
+                    break;
+                }
+            }
         }
-        public void GetUIPauseMenu()
+        private void CalculateLevelTime()
         {
-            UIDeactivateAll();
-            uiPauseMenu.SetActive(true);
+            int time = 0;
+
+            int shieldValue = shieldBlock.GetComponentInChildren<ShieldManager>().GetDifficultyValue;
+            int towerBlocksValue = 0;
+            towerBlocks.Clear();
+            foreach (Transform child in towerParent.transform )
+            {
+                towerBlocks.Add(child.gameObject);
+            }
+            foreach (GameObject block in towerBlocks)
+            {
+                towerBlocksValue += block.GetComponent<Target>().GetHPValue;
+            }
+            time = (towerBlocksValue * 2) + (shieldValue * 5);
+            timeForLevel = time;
+            _initTime = time;
+            _timeFor1star = (int)(time - (time * 0.7f));
+            _timeFor2star = (int)(time - (time * 0.5f));
+            _timeFor3star = (int)(time - (time * 0.3f));
         }
-        public void GetUIGamaplay()
+        private void OnEnable()
         {
-            UIDeactivateAll();
-            uiGameplay.SetActive(true);
-        }
-        public void GetUIScoreMenu()
-        {
-            UIDeactivateAll();
-            uiScoreMenu.SetActive(true);
-        }
-        public void GetUIGameOver()
-        {
-            UIDeactivateAll();
-            uiGameOverMenu.SetActive(true);
-        }
-        public void GetUICountdown()
-        {
-            UIDeactivateAll();
-            uiCountdown.SetActive(true);
+            SystemActions.OnStartNewGame += StopTimer;
+            SystemActions.OnStartNewGame += CalculateLevelTime;
+            SystemActions.OnGetToMenuButtonClicked += StopTimer;
+            SystemActions.OnLevelComplete += StopTimer;
+            SystemActions.OnPlayerDie += StopTimer;
         }
     }
 }

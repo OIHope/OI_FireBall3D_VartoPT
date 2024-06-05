@@ -13,12 +13,16 @@ namespace Assets.Script.Level
             Clean();
             GenerateShield();
         }
+        public void DespawnShield()
+        {
+            Clean();
+        }
         private void Clean()
         {
             if (transform.childCount == 0) return;
-            for (int i = transform.childCount; i == 0; i--)
+            foreach (Transform child in transform)
             {
-                Destroy(transform.GetChild(i).gameObject);
+                Destroy(child.gameObject);
             }
         }
         private void GenerateShield()

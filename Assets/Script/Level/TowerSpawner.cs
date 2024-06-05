@@ -19,12 +19,16 @@ namespace Assets.Script.Level
             SpawnBlocks(blockPrefabs, Random.Range(spawnCountRange.x, spawnCountRange.y), false, transform.position);
             SpawnBlocks(treasurePrefabs, 1, true, _lastSpawnedPos);
         }
+        public void DespawnTower()
+        {
+            Clean();
+        }
         private void Clean()
         {
             if (transform.childCount == 0) return;
-            for (int i = transform.childCount; i == 0; i--)
+            foreach (Transform child in transform)
             {
-                Destroy(transform.GetChild(i).gameObject);
+                Destroy(child.gameObject);
             }
         }
         private void SpawnBlocks(List<GameObject> list, int count, bool random, Vector3 startPos)
