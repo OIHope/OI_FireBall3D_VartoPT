@@ -9,6 +9,7 @@ namespace Assets.Script.Player
     {
         private PlayerInput _inputAction;
 
+        [SerializeField] private Animator animator;
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private GameObject bulletParent;
         [SerializeField] private Transform bulletShootPoint;
@@ -37,6 +38,7 @@ namespace Assets.Script.Player
             if (bulletParent == null) bulletParent = gameObject;
             var bullet = Instantiate(bulletPrefab, bulletShootPoint.position, Quaternion.identity, bulletParent.transform).GetComponent<BulletManager>();
             bullet.Init();
+            animator.SetTrigger("TargetIsHit");
         }
         private IEnumerator ShootCoroutine()
         {
