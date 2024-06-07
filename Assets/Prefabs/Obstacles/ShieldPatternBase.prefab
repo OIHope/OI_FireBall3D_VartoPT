@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1893199576431455575}
+  difficultyValue: 0
 --- !u!1001 &114205517919172722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81,6 +82,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ShieldWide
       objectReference: {fileID: 0}
+    - target: {fileID: 4762769152068434041, guid: b54b212baf4e0f44890f719d6c457ce8, type: 3}
+      propertyPath: hitClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a9159a88bc1a0f64483176029652bd6a, type: 3}
     - target: {fileID: 9170984699869151285, guid: b54b212baf4e0f44890f719d6c457ce8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

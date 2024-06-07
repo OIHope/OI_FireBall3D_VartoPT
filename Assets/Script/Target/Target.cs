@@ -1,3 +1,4 @@
+using Assets.Script.Audio;
 using System;
 using UnityEngine;
 
@@ -6,6 +7,8 @@ namespace Assets.Script.Level
     public abstract class Target : MonoBehaviour
     {
         public System.Action OnDestroyAction;
+        [SerializeField] protected AudioClip hitClip;
+        [SerializeField] protected AudioClip destroyClip;
         [SerializeField] protected Animator animator;
         [SerializeField] protected TMPro.TextMeshPro hpText;
         [SerializeField] protected int maxHp;
@@ -41,11 +44,13 @@ namespace Assets.Script.Level
             hp--;
             animator.SetTrigger("TargetIsHit");
             ChangeText(hp);
+            SoundFXManager.instance.PlaySoundFX(hitClip, transform, 1f, true);
         }
         protected virtual void Destruction()
         {
             OnDestroyAction?.Invoke();
             animator.SetTrigger("TargetIsDead");
+            SoundFXManager.instance.PlaySoundFX(destroyClip, transform, 1f, true);
             OnDestroyAction = null;
         }
     }

@@ -68,6 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ebf722ef7cbb94e80198667a98ed7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitClip: {fileID: 8300000, guid: 91644def12b6acf4e9eed6174be3778b, type: 3}
+  destroyClip: {fileID: 8300000, guid: 340279f1b8907a748b4fd008aee32c05, type: 3}
   animator: {fileID: 9088982386811132960}
   hpText: {fileID: 2758180151241895415}
   maxHp: 5

@@ -1,3 +1,4 @@
+using Assets.Script.Audio;
 using Assets.Script.compAction;
 using Assets.Script.Game;
 using Assets.Script.Player;
@@ -14,7 +15,7 @@ namespace Assets.Script.UI
         [SerializeField] private TextMeshProUGUI textTimeLeft;
         [SerializeField] private GameManager gameManager;
 
-        [SerializeField] private PlayerController playerController;
+        [SerializeField] private AudioClip clickSound;
 
         private void Update()
         {
@@ -23,6 +24,7 @@ namespace Assets.Script.UI
         private void PauseGame()
         {
             SystemActions.OnPauseButtonClicked?.Invoke();
+            SoundFXManager.instance.PlaySoundFX(clickSound, transform, 0.2f, false);
         }
         private void OnEnable()
         {

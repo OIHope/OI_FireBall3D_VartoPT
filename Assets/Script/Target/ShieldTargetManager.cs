@@ -1,3 +1,5 @@
+using Assets.Script.Audio;
+
 namespace Assets.Script.Level
 {
     public class ShieldTargetManager : Target
@@ -9,6 +11,7 @@ namespace Assets.Script.Level
         protected override void Damage()
         {
             animator.SetTrigger("TargetIsHit");
+            SoundFXManager.instance.PlaySoundFX(hitClip, transform, 1f, true);
         }
         protected override void Destruction() { }
     }

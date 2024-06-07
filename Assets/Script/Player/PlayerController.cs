@@ -1,3 +1,4 @@
+using Assets.Script.Audio;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,6 +10,7 @@ namespace Assets.Script.Player
     {
         private PlayerInput _inputAction;
 
+        [SerializeField] private AudioClip shootClip;
         [SerializeField] private Animator animator;
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private GameObject bulletParent;
@@ -39,6 +41,7 @@ namespace Assets.Script.Player
             var bullet = Instantiate(bulletPrefab, bulletShootPoint.position, Quaternion.identity, bulletParent.transform).GetComponent<BulletManager>();
             bullet.Init();
             animator.SetTrigger("TargetIsHit");
+            SoundFXManager.instance.PlaySoundFX(shootClip, transform, 1f, true);
         }
         private IEnumerator ShootCoroutine()
         {
