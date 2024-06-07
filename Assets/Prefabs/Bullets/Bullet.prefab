@@ -119,6 +119,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb94a312f3a53f4abcc4c54e141cfb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletHitShieldParticles:
+  - {fileID: 852438192016485519, guid: db1c7b0e768e7b34ca2bc28b6c0914fd, type: 3}
+  - {fileID: 852438192016485519, guid: db1c7b0e768e7b34ca2bc28b6c0914fd, type: 3}
+  - {fileID: 2195240559094725930, guid: 5109afb3ea5b8864bad4fec7c26ab6e9, type: 3}
+  bulletDestroyParticles:
+  - {fileID: 852438192016485519, guid: db1c7b0e768e7b34ca2bc28b6c0914fd, type: 3}
   bulletSpeed: 25
   destroyTime: 3
   moveDirection: {x: 0, y: 0, z: 1}
