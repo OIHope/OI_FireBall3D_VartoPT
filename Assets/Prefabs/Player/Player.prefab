@@ -235,13 +235,14 @@ GameObject:
   - component: {fileID: 2733581602546006289}
   - component: {fileID: 7443539124495248829}
   - component: {fileID: 5272530117605081334}
+  - component: {fileID: 6292377629393372649}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2733581602546006289
 Transform:
   m_ObjectHideFlags: 0
@@ -294,9 +295,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7268a9c3e9ecf994ea5124bf3c811683, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitClip: {fileID: 8300000, guid: 9c71d58c56e4b944b9a0fb1673b34a26, type: 3}
+  destroyClip: {fileID: 8300000, guid: 340279f1b8907a748b4fd008aee32c05, type: 3}
   animator: {fileID: 1429670761875796238}
   hpText: {fileID: 554375503331076141}
   maxHp: 5
+--- !u!114 &6292377629393372649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7606770250274839147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aae3ac80da347c4ebf2144aaaca5f67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootClip: {fileID: 8300000, guid: 95422a1bb707b624d8e2db85c7d87dfb, type: 3}
+  shootParticles:
+  - {fileID: 843240773138638040, guid: fc6c2934e0afc774c9d91a87333e125b, type: 3}
+  - {fileID: 1955582241856402017, guid: cf395c54a59061a4da1d33ce0c616fa5, type: 3}
+  animator: {fileID: 1429670761875796238}
+  bulletPrefab: {fileID: 3717114793617417026, guid: c5a26910122c1494a9215a808f930187, type: 3}
+  bulletParent: {fileID: 0}
+  bulletShootPoint: {fileID: 2619117616495941681}
+  shootDelay: 0.25
 --- !u!1 &7807418079397391810
 GameObject:
   m_ObjectHideFlags: 0

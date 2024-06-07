@@ -5,6 +5,8 @@ namespace Assets.Script.Player
 {
     public class BulletManager : MonoBehaviour
     {
+        [SerializeField] private GameObject[] bulletHitShieldParticles;
+        [SerializeReference] private GameObject[] bulletDestroyParticles;
         [SerializeField] private float bulletSpeed = 10f;
         [SerializeField] private float destroyTime = 2f;
         
@@ -28,7 +30,15 @@ namespace Assets.Script.Player
             {
                 target.TakeDamage();
                 moveDirection *= -1;
-                if (!other.CompareTag("Shield")) Destroy(gameObject);
+                if (!other.CompareTag("Shield"))
+                {
+                    foreach (GameObject particle in bulletDestroyParticles) { Instantiate(particle, transform.position, Quaternion.identity); }
+                    Destroy(gameObject);
+                }
+                else
+                {
+                    foreach (GameObject particle in bulletHitShieldParticles) { Instantiate(particle, transform.position, Quaternion.identity); }
+                }
             }
         }
     }

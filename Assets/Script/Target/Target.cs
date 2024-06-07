@@ -9,6 +9,7 @@ namespace Assets.Script.Level
         public System.Action OnDestroyAction;
         [SerializeField] protected AudioClip hitClip;
         [SerializeField] protected AudioClip destroyClip;
+        [SerializeField] protected GameObject[] destroyParticles;
         [SerializeField] protected Animator animator;
         [SerializeField] protected TMPro.TextMeshPro hpText;
         [SerializeField] protected int maxHp;
@@ -51,6 +52,7 @@ namespace Assets.Script.Level
             OnDestroyAction?.Invoke();
             animator.SetTrigger("TargetIsDead");
             SoundFXManager.instance.PlaySoundFX(destroyClip, transform, 1f, true);
+            foreach (GameObject particle in destroyParticles) { Instantiate(particle, transform.position, Quaternion.identity); }
             OnDestroyAction = null;
         }
     }

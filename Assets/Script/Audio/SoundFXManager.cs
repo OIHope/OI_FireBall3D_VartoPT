@@ -18,7 +18,8 @@ namespace Assets.Script.Audio
             audioSource.volume = volume;
             audioSource.pitch = deTune ? Random.Range(0.8f, 1.2f) : 1f;
             audioSource.Play();
-            Destroy(audioSource, audioSource.clip.length);
+            float audioDuration = audioClip.length;
+            Destroy(audioSource.gameObject, audioDuration);
         }
     }
 }

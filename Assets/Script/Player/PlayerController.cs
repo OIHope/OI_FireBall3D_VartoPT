@@ -11,6 +11,7 @@ namespace Assets.Script.Player
         private PlayerInput _inputAction;
 
         [SerializeField] private AudioClip shootClip;
+        [SerializeField] private GameObject[] shootParticles;
         [SerializeField] private Animator animator;
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private GameObject bulletParent;
@@ -40,6 +41,10 @@ namespace Assets.Script.Player
             if (bulletParent == null) bulletParent = gameObject;
             var bullet = Instantiate(bulletPrefab, bulletShootPoint.position, Quaternion.identity, bulletParent.transform).GetComponent<BulletManager>();
             bullet.Init();
+            foreach (GameObject particle in shootParticles)
+            {
+                Instantiate(particle, bulletShootPoint.position, Quaternion.identity, bulletParent.transform);
+            }
             animator.SetTrigger("TargetIsHit");
             SoundFXManager.instance.PlaySoundFX(shootClip, transform, 1f, true);
         }

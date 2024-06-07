@@ -1,7 +1,7 @@
 using Assets.Script.compAction;
 using Assets.Script.Level;
 using System;
-using UnityEditor;
+using UnityEngine;
 
 namespace Assets.Script.Player
 {
@@ -25,6 +25,7 @@ namespace Assets.Script.Player
         {
             Invoke("PlayerDie", 1f);
             animator.SetTrigger("TargetIsDead");
+            foreach (GameObject particle in destroyParticles) { Instantiate(particle, transform.position, Quaternion.identity); }
         }
         private void PlayerDie() => SystemActions.OnPlayerDie?.Invoke();
         protected override void Update()
