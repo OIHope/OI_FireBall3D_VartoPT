@@ -625,7 +625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1804903794854147628, guid: 68aafde21fca11c4ca763d4b342c8f9b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1804903794854147628, guid: 68aafde21fca11c4ca763d4b342c8f9b, type: 3}
       propertyPath: m_AnchorMin.x
@@ -633,7 +633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1804903794854147628, guid: 68aafde21fca11c4ca763d4b342c8f9b, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1804903794854147628, guid: 68aafde21fca11c4ca763d4b342c8f9b, type: 3}
       propertyPath: m_SizeDelta.x
@@ -641,7 +641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1804903794854147628, guid: 68aafde21fca11c4ca763d4b342c8f9b, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 150
+      value: 459.191
       objectReference: {fileID: 0}
     - target: {fileID: 1804903794854147628, guid: 68aafde21fca11c4ca763d4b342c8f9b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -673,11 +673,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1804903794854147628, guid: 68aafde21fca11c4ca763d4b342c8f9b, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 481.27463
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1804903794854147628, guid: 68aafde21fca11c4ca763d4b342c8f9b, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -755.6824
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1804903794854147628, guid: 68aafde21fca11c4ca763d4b342c8f9b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -693,7 +693,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6869142964878175409, guid: 68aafde21fca11c4ca763d4b342c8f9b, type: 3}
       propertyPath: m_text
-      value: CastleBreaker3D
+      value: 'Castle
+
+        Breaker
+
+        3D'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869142964878175409, guid: 68aafde21fca11c4ca763d4b342c8f9b, type: 3}
+      propertyPath: m_fontSize
+      value: 115
+      objectReference: {fileID: 0}
+    - target: {fileID: 6869142964878175409, guid: 68aafde21fca11c4ca763d4b342c8f9b, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6869142964878175409, guid: 68aafde21fca11c4ca763d4b342c8f9b, type: 3}
       propertyPath: m_enableWordWrapping
@@ -855,7 +867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1184689774163428385, guid: 1396f36a7e7e94c40b467b0d45438aed, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1184689774163428385, guid: 1396f36a7e7e94c40b467b0d45438aed, type: 3}
       propertyPath: m_AnchorMin.x
@@ -863,7 +875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1184689774163428385, guid: 1396f36a7e7e94c40b467b0d45438aed, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1184689774163428385, guid: 1396f36a7e7e94c40b467b0d45438aed, type: 3}
       propertyPath: m_SizeDelta.x
@@ -903,11 +915,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1184689774163428385, guid: 1396f36a7e7e94c40b467b0d45438aed, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 481.27463
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1184689774163428385, guid: 1396f36a7e7e94c40b467b0d45438aed, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -955.6824
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1184689774163428385, guid: 1396f36a7e7e94c40b467b0d45438aed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3338,7 +3350,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1139658910
 RectTransform:
   m_ObjectHideFlags: 0
