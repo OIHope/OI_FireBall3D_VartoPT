@@ -31,9 +31,9 @@ namespace Assets.Script.UI
             int threeStarsTime = (int)gameManager.GetTimeStarsInfo.z;
 
             textTimeSpent.text = ($"Time spent: {timeSpent}s");
-            textLevelStats.text = ($"Time for 3 stars: {threeStarsTime}s\n" +
+            textLevelStats.text = ($"Time for 1 star: {oneStarTime}s\n" +
                 $"Time for 2 stars: {twoStarsTime}s\n" +
-                $"Time for 1 star: {oneStarTime}s");
+                $"Time for 3 stars: {threeStarsTime}s");
 
             if (timeSpent <= oneStarTime) scoreImageStars[0].SetActive(true);
             if (timeSpent <= twoStarsTime) scoreImageStars[1].SetActive(true);

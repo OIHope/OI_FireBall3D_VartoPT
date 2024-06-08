@@ -63,9 +63,9 @@ namespace Assets.Script.Game
             time = (towerBlocksValue * 2) + (shieldValue * 5);
             timeForLevel = time;
             _initTime = time;
-            _timeFor1star = (int)(time - (time * 0.7f));
+            _timeFor3star = (int)(time - (time * 0.7f));
             _timeFor2star = (int)(time - (time * 0.5f));
-            _timeFor3star = (int)(time - (time * 0.3f));
+            _timeFor1star = (int)(time - (time * 0.3f));
         }
         private void OnEnable()
         {

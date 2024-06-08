@@ -3,7 +3,12 @@ guid: 23a982cac23f61847b34a5b6bec7f78c
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: material_Basic
+    second: {fileID: 2100000, guid: e8ea712260cc2d348b291bbb5ff08462, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -71,7 +76,7 @@ ModelImporter:
     strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 1
+    normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
